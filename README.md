@@ -1,5 +1,7 @@
 ### change source(if work slow) and update 
 ```ubuntu
+sudo sed -i "s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
+sudo sed -i "s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
 sudo update && sudo upgrade
 ```
 
