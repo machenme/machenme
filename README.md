@@ -97,9 +97,6 @@ custom_channels:
   pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
   pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
   simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-  # 如果需要使用其他第三方源（参考上方完整列表）
-  # 例如 conda install -c pytorch-test，则可以添加
-  #pytorch-test: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
 ```
 
 ### change pipy source
