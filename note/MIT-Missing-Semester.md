@@ -26,8 +26,8 @@
 `pwd`: print work dictionary  
 `cd` : go to path  
 `ls` : show contents of current directory  
-`ls -h`: with `-h` or `-help` will print help text
-`ls -l`: use a long listing format to show contents  
+`ls -h`: with `-h` or `-help` will print help text  
+`ls -l`: use a long listing format to show contents    
 ```ubuntu
 (base) chen@ubuntu:~$ ls -l ~
 总用量 48
@@ -41,10 +41,10 @@ drwxr-xr-x  3 chen chen 4096 11月 27 11:38 Documents
     - `w` write
     - `x` execute
     - `-` have no permissions
-    - first `rwx` for user, second `rwx` for groups(with user), third `rwx` for everyone else
-`mv` : move or rename a file
-`cp` : copy
-`mkdir` : create a new dictionary
+    - first `rwx` for user, second `rwx` for groups(with user), third `rwx` for everyone else  
+`mv` : move or rename a file  
+`cp` : copy   
+`mkdir` : create a new dictionary  
 
 ## Connecting programs
 `a>b` : use a instead b output steam
