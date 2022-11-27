@@ -42,6 +42,7 @@ drwxr-xr-x  3 chen chen 4096 11月 27 11:38 Documents
     - `x` execute
     - `-` have no permissions
     - first `rwx` for user, second `rwx` for groups(with user), third `rwx` for everyone else  
+
 `mv` : move or rename a file  
 `cp` : copy   
 `mkdir` : create a new dictionary  
