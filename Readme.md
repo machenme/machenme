@@ -1,9 +1,13 @@
 Q: Error code: Wsl/Service/0x800706f7  
 A: 
-```cmd
-Windows Registry Editor Version 5.00
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WinSock2\Parameters\AppId_Catalog\0408F7A3]
-"AppFullPath"="C:\\\\windows\\\\system32\\\\wsl.exe"
-"PermittedLspCategories"=dword:80000000
+- download [Nolsp.exe](https://wtto00.github.io/cdn/windows/nolsp.exe)
+- get wsl location eg. `C:\Program Files\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_1.0.3.0_x64__8wekyb3d8bbwe`  
+```powershell
+Get-AppxPackage MicrosoftCorporationII.WindowsSubsystemForLinux | Select-Object -expand InstallLocation
+```
+- go to Nolsp.exe location with administrator powershell
+```powershell
+.\NoLsp.exe "C:\Program Files\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_1.0.3.0_x64__8wekyb3d8bbwe\wsl.exe"
+.\NoLsp.exe "C:\Program Files\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_1.0.3.0_x64__8wekyb3d8bbwe\wslg.exe"
+.\NoLsp.exe "C:\Program Files\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_1.0.3.0_x64__8wekyb3d8bbwe\wslservice.exe"
 ```
