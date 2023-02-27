@@ -1,3 +1,24 @@
+## Create python environment on wsl2
+---
+- install wsl2(windows 11 should be wsl2 by default)
+  ```powershell
+  wsl --install
+  ```
+- restart and open ubuntu then create a user
+- install miniconda
+  ```ubuntu
+  wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+  bash Miniconda3-latest-Linux-x86_64.sh
+  ```
+- create python envs(you can change python `python==<version>` version if you want)
+  ```ubuntu
+  conda create -n py311 python==3.11
+  ```
+---
+
+
+---
+### FAQ
 Q: Error code: Wsl/Service/0x800706f7  
 A: 
 - reset winsock
