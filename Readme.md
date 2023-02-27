@@ -1,5 +1,5 @@
-# study note  
-## 2022-12-02 vim basic command.  
-i hjkl w b f e ge t 0 $ ^ g_ { } ctrl+D ctrl+U / ? n N gd gf gg G %  
-## 2022-11-28 shell basic command.  
-cs-self-learning/docs/编程入门/MIT-Missing-Semester.md  
+Q: Error code: Wsl/Service/0x800706f7  
+A: Download [Nolsp.exe](https://www.proxifier.com/tmp/Test20200228/NoLsp.exe)  
+```cmd
+NoLsp.exe C:\windows\system32\wsl.exe
+```
