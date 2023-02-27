@@ -1,5 +1,9 @@
 Q: Error code: Wsl/Service/0x800706f7  
-A: Download [Nolsp.exe](https://www.proxifier.com/tmp/Test20200228/NoLsp.exe)  
+A: 
 ```cmd
-NoLsp.exe C:\windows\system32\wsl.exe
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WinSock2\Parameters\AppId_Catalog\0408F7A3]
+"AppFullPath"="C:\\\\windows\\\\system32\\\\wsl.exe"
+"PermittedLspCategories"=dword:80000000
 ```
