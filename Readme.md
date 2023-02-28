@@ -14,6 +14,10 @@
   ```ubuntu
   conda create -n py311 python==3.11
   ```
+- change pip sources
+  ```powershell
+  pip config set global.index-url https://mirrors.bfsu.edu.cn/pypi/web/simple
+  ```
 ---
 
 
