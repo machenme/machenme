@@ -22,22 +22,15 @@
 
 
 ---
-### FAQ
-Q: Error code: Wsl/Service/0x800706f7  
-A: 
-- reset winsock
-  ```powershell
-  wsl --shutdown
-  netsh winsock reset
-  ```
-- download [Nolsp.exe](https://wtto00.github.io/cdn/windows/nolsp.exe)
-- get wsl location
-  ```powershell
-  Get-AppxPackage MicrosoftCorporationII.WindowsSubsystemForLinux | Select-Object -expand InstallLocation
-  ```
-- go to Nolsp.exe location with administrator powershell(remember use your location replace them)
-  ```powershell
-  .\NoLsp.exe "C:\Program Files\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_1.0.3.0_x64__8wekyb3d8bbwe\wsl.exe"
-  .\NoLsp.exe "C:\Program Files\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_1.0.3.0_x64__8wekyb3d8bbwe\wslg.exe"
-  .\NoLsp.exe "C:\Program Files\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_1.0.3.0_x64__8wekyb3d8bbwe\wslservice.exe"
-  ```
+## Python use persional profile on selenium (edge)
+```python
+from selenium import webdriver
+from selenium.webdriver.edge.service import Service as EdgeService
+from webdriver_manager.microsoft import EdgeChromiumDriverManager
+
+option = webdriver.EdgeOptions()
+# make sure change C:/Users/chen/AppData/Local/Microsoft/Edge/User Data to your own profile address,you can find it with edge in edge://version
+option.add_argument("user-data-dir=C:/Users/chen/AppData/Local/Microsoft/Edge/User Data")
+option.add_argument("--start-maximized")
+driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()),options=option)
+```
