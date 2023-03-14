@@ -19,7 +19,16 @@
   pip config set global.index-url https://mirrors.bfsu.edu.cn/pypi/web/simple
   ```
 ---
-
+- Nolsp.exe
+  ```powershell
+  NoLsp.exe C:\Windows\System32\wsl.exe
+  NoLsp.exe "C:\Program Files\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_1.1.3.0_x64__8wekyb3d8bbwe\wslhost.exe"
+  NoLsp.exe "C:\Program Files\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_1.1.3.0_x64__8wekyb3d8bbwe\wslg.exe"
+  NoLsp.exe "C:\Program Files\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_1.1.3.0_x64__8wekyb3d8bbwe\wslservice.exe"
+  NoLsp.exe "C:\Program Files\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_1.1.3.0_x64__8wekyb3d8bbwe\wsl.exe"
+  NoLsp.exe "C:\Program Files\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_1.1.3.0_x64__8wekyb3d8bbwe\msrdc.exe"
+  pause
+  ```
 
 ---
 ## Python use persional profile on selenium (edge)
