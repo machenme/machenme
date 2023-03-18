@@ -1,35 +1,29 @@
-## Create python environment on wsl2
----
-- install wsl2(windows 11 should be wsl2 by default)
+## Python for windows([mamba](https://mamba.readthedocs.io/en/latest/installation.html)/[conda](https://docs.conda.io/en/latest/miniconda.html))  
+### change conda sources
+- open mamba/conda then type `conda config --set show_channel_urls yes`(the application you open is named like xxx Prompt)
+- open `%HOMEPATH%\.condarc` with editor whatever you like
+- replace below code into .condarc file
   ```powershell
-  wsl --install
+  channels:
+  - defaults
+  show_channel_urls: true
+  default_channels:
+    - https://mirrors.bfsu.edu.cn/anaconda/pkgs/main
+    - https://mirrors.bfsu.edu.cn/anaconda/pkgs/r
+    - https://mirrors.bfsu.edu.cn/anaconda/pkgs/msys2
+  custom_channels:
+    conda-forge: https://mirrors.bfsu.edu.cn/anaconda/cloud
+    msys2: https://mirrors.bfsu.edu.cn/anaconda/cloud
+    bioconda: https://mirrors.bfsu.edu.cn/anaconda/cloud
+    menpo: https://mirrors.bfsu.edu.cn/anaconda/cloud
+    pytorch: https://mirrors.bfsu.edu.cn/anaconda/cloud
+    pytorch-lts: https://mirrors.bfsu.edu.cn/anaconda/cloud
+    simpleitk: https://mirrors.bfsu.edu.cn/anaconda/cloud
   ```
-- restart and open ubuntu then create a user
-- install miniconda
-  ```ubuntu
-  wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-  bash Miniconda3-latest-Linux-x86_64.sh
-  ```
-- create python envs(you can change python `python==<version>` version if you want)
-  ```ubuntu
-  conda create -n py311 python==3.11
-  ```
-- change pip sources
-  ```powershell
-  pip config set global.index-url https://mirrors.bfsu.edu.cn/pypi/web/simple
-  ```
----
-- Nolsp.exe
-  ```powershell
-  NoLsp.exe C:\Windows\System32\wsl.exe
-  NoLsp.exe "C:\Program Files\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_1.1.3.0_x64__8wekyb3d8bbwe\wslhost.exe"
-  NoLsp.exe "C:\Program Files\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_1.1.3.0_x64__8wekyb3d8bbwe\wslg.exe"
-  NoLsp.exe "C:\Program Files\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_1.1.3.0_x64__8wekyb3d8bbwe\wslservice.exe"
-  NoLsp.exe "C:\Program Files\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_1.1.3.0_x64__8wekyb3d8bbwe\wsl.exe"
-  NoLsp.exe "C:\Program Files\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_1.1.3.0_x64__8wekyb3d8bbwe\msrdc.exe"
-  pause
-  ```
-
+- clean conda cache with `conda clean -i`
+- create py ervironment with `mamba create py311 python==3.11`(py311 is your environment name, I like use python version)
+- activate your python env with `conda/mamba activate py311)
+- change your pip sources with `pip config set global.index-url https://mirrors.bfsu.edu.cn/pypi/web/simple`
 ---
 ## Python use persional profile on selenium (edge)
 ```python
