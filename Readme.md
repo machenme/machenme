@@ -21,7 +21,7 @@
     simpleitk: https://mirrors.bfsu.edu.cn/anaconda/cloud
   ```
 - clean conda cache with `conda clean -i`
-- create py ervironment with `mamba create py311 python==3.11`(py311 is your environment name, I like use python version)
+- create py ervironment with `mamba create -n py311 python==3.11`(py311 is your environment name, I like use python version)
 - activate your python env with `conda/mamba activate py311)
 - change your pip sources with `pip config set global.index-url https://mirrors.bfsu.edu.cn/pypi/web/simple`
 ---
