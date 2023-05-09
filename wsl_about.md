@@ -9,3 +9,9 @@ wget https://developer.nvidia.com/downloads/compute/cudnn/secure/8.9.1/local_ins
 sudo dpkg -i cudnn-local-repo-ubuntu2204-8.9.1.23_1.0-1_amd64.deb
 sudo cp /var/cudnn-local-repo-ubuntu2204-8.9.1.23/cudnn-local-E7A7D88D-keyring.gpg /usr/share/keyrings/
 ```
+add 
+```bash
+export PATH=/usr/local/cuda/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+```
+to `.zshrc`(.bashrc)
