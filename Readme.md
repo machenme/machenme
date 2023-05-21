@@ -1,23 +1,12 @@
 ## MySQL for wsl2
-- install MySQL
+- install MySQL(check version)
 ```bash
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.25-1_all.deb
+sudo dpkg -i mysql-apt-config_0.8.25-1_all.deb
+sudo apt update
 sudo apt install mysql-server
-sudo /etc/init.d/mysql start
-sudo mysql_secure_installation
 ```
-- get temp password  
-```bash
-sudo cat /etc/mysql/debian.cnf
-```
-- logo in mysql change password
-```bash
-mysql -udebian-sys-maint -p<temp password>
-mysql>use msyql;  
-mysql>alter user 'root'@'localhost' identified with mysql_native_password by 'Root_123456';
-mysql>set global validate_password.policy=0;
-mysql>set global validate_password.length=1;
-mysql>alter user 'root'@'localhost' identified with mysql_native_password by '<whatever you like eg: root>';
-```
+
 
 
 
