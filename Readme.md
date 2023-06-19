@@ -1,3 +1,40 @@
+## fix Error code: Wsl/Service/0x800706f7
+solution page:https://github.com/microsoft/WSL/issues/4177#issuecomment-1359200646
+
+save code like fix_wsl.ps1, then run it with powershell administrator .\fix_wsl.ps1
+
+```powershell
+#Requires -RunAsAdministrator
+# Fix for https://github.com/microsoft/WSL/issues/4177
+
+$MethodDefinition = @'
+[DllImport("ws2_32.dll", CharSet = CharSet.Unicode)]
+public static extern int WSCSetApplicationCategory([MarshalAs(UnmanagedType.LPWStr)] string Path, uint PathLength, [MarshalAs(UnmanagedType.LPWStr)] string Extra, uint ExtraLength, uint PermittedLspCategories, out uint pPrevPermLspCat, out int lpErrno);
+'@
+
+$Ws2Spi = Add-Type -MemberDefinition $MethodDefinition -Name 'Ws2Spi' -PassThru
+
+$WslLocation = Get-AppxPackage MicrosoftCorporationII.WindowsSubsystemForLinux | Select-Object -expand InstallLocation
+
+$Executables = ("wsl.exe", "wslservice.exe");
+
+foreach ($Exe in $Executables) {
+    $ExePath = "${WslLocation}\${Exe}";
+    $ExePathLength = $ExePath.Length;
+
+    $PrevCat = $null;
+    $ErrNo = $null;
+    if ($Ws2Spi::WSCSetApplicationCategory($ExePath, $ExePathLength, $null, 0, [uint32]"0x80000000", [ref] $PrevCat, [ref] $ErrNo) -eq 0) {
+        Write-Output "Added $ExePath!";
+    }
+}
+```
+then
+``` powershell
+taskkill -IM "wslservice.exe" /F
+```
+
+
 ## MySQL for wsl2
 - install MySQL(check version)
 ```bash
