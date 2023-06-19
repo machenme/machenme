@@ -113,27 +113,27 @@ setopt nonomatch
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/chen/mambaforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/chen/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/chen/mambaforge/etc/profile.d/conda.sh" ]; then
-        . "/home/chen/mambaforge/etc/profile.d/conda.sh"
+    if [ -f "/home/chen/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/chen/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/chen/mambaforge/bin:$PATH"
+        export PATH="/home/chen/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 
-if [ -f "/home/chen/mambaforge/etc/profile.d/mamba.sh" ]; then
-    . "/home/chen/mambaforge/etc/profile.d/mamba.sh"
+if [ -f "/home/chen/miniconda3/etc/profile.d/mamba.sh" ]; then
+    . "/home/chen/miniconda3/etc/profile.d/mamba.sh"
 fi
 # <<< conda initialize <<<
 export hostip=$(cat /etc/resolv.conf |grep -oP '(?<=nameserver\ ).*')
-export https_proxy="http://${hostip}:7890"
-export http_proxy="http://${hostip}:7890"
-export all_proxy="socks5://${hostip}:7890"
-export ALL_PROXY="socks5://${hostip}:7890"
+#export https_proxy="http://${hostip}:7890"
+#export http_proxy="http://${hostip}:7890"
+#export all_proxy="socks5://${hostip}:7890"
+#export ALL_PROXY="socks5://${hostip}:7890"
 # 默认开启代理，可通过unproxy 和proxy 别名命令 关闭或重新开启代理
 alias proxy='export https_proxy="http://${hostip}:7890";export http_proxy="http://${hostip}:7890";export all_proxy="socks5://${hostip}:7890";export ALL_PROXY="socks5://${hostip}:7890";'
 alias unproxy='unset https_proxy; unset http_proxy; unset all_proxy; unset ALL_PROXY;'
