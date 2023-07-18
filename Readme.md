@@ -73,7 +73,12 @@ sudo apt install mysql-server
 - create py ervironment with `mamba create -n py311 python==3.11`(py311 is your environment name, I like use python version)
 - activate your python env with `conda/mamba activate py311)
 - change your pip sources with `pip config set global.index-url https://mirrors.bfsu.edu.cn/pypi/web/simple`
----
+
+
+
+
+
+
 ## Python use persional profile on selenium (edge)
 ```python
 from selenium import webdriver
@@ -85,4 +90,40 @@ option = webdriver.EdgeOptions()
 option.add_argument("user-data-dir=C:/Users/chen/AppData/Local/Microsoft/Edge/User Data")
 option.add_argument("--start-maximized")
 driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()),options=option)
+```
+
+
+
+
+
+
+## Creating Single Flask executable file with Pyinstaller(flask打包到单个py文件)
+```bash
+├── app.py
+├── static
+│   └── style.css
+└── templates
+    └── index.html
+```
+`app.py`
+```python
+import sys
+import os
+
+def resource_path(relative_path):
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
+
+app = Flask(__name__, static_url_path="", static_folder=resource_path(
+    'static'), template_folder=resource_path("templates"))
+
+```
+`index.html`
+```html
+<link rel="stylesheet" type="text/css" href={{ url_for('static', filename='style.css') }}>
+```
+`pyinstaller command pyinstaller`
+```bash
+pyinstaller app.py -F --add-data "./templates/*;templates" --add-data "./static/*;static"
 ```
