@@ -1,3 +1,21 @@
+## wsl2 use proxy,default port 7890
+need add to last with .bashrc or .zshrc
+```bash
+export hostip=$(cat /etc/resolv.conf |grep -oP '(?<=nameserver\ ).*')
+#export https_proxy="http://${hostip}:7890"
+#export http_proxy="http://${hostip}:7890"
+#export all_proxy="socks5://${hostip}:7890"
+#export ALL_PROXY="socks5://${hostip}:7890"
+# 默认不开启代理，可通过unproxy 和proxy 别名命令 关闭或开启代理
+alias proxy='export https_proxy="http://${hostip}:7890";export http_proxy="http://${hostip}:7890";export all_proxy="socks5://${hostip}:7890";export ALL_PROXY="socks5://${hostip}:7890";'
+alias unproxy='unset https_proxy; unset http_proxy; unset all_proxy; unset ALL_PROXY;'
+```
+
+
+
+
+
+
 ## fix Error code: Wsl/Service/0x800706f7
 solution page:https://github.com/microsoft/WSL/issues/4177#issuecomment-1359200646
 
@@ -92,38 +110,3 @@ option.add_argument("--start-maximized")
 driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()),options=option)
 ```
 
-
-
-
-
-
-## Creating Single Flask executable file with Pyinstaller(flask打包到单个py文件)
-```bash
-├── app.py
-├── static
-│   └── style.css
-└── templates
-    └── index.html
-```
-`app.py`
-```python
-import sys
-import os
-
-def resource_path(relative_path):
-    if hasattr(sys, '_MEIPASS'):
-        return os.path.join(sys._MEIPASS, relative_path)
-    return os.path.join(os.path.abspath("."), relative_path)
-
-app = Flask(__name__, static_url_path="", static_folder=resource_path(
-    'static'), template_folder=resource_path("templates"))
-
-```
-`index.html`
-```html
-<link rel="stylesheet" type="text/css" href={{ url_for('static', filename='style.css') }}>
-```
-`pyinstaller command pyinstaller`
-```bash
-pyinstaller app.py -F --add-data "./templates/*;templates" --add-data "./static/*;static"
-```
