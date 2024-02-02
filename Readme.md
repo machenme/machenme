@@ -21,6 +21,13 @@ deb https://mirrors4.bfsu.edu.cn/ubuntu/ jammy-security main restricted universe
 # # deb-src https://mirrors4.bfsu.edu.cn/ubuntu/ jammy-proposed main restricted universe multiverse
 ```
 
+## install ohmyzsh in china
+```bash
+git clone https://mirrors4.tuna.tsinghua.edu.cn/git/ohmyzsh.git
+cd ohmyzsh/tools
+REMOTE=https://mirrors4.tuna.tsinghua.edu.cn/git/ohmyzsh.git sh install.sh
+```
+
 ### change conda source
 ```bash
 cd ~
