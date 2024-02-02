@@ -74,6 +74,13 @@ export hostip=$(cat /etc/resolv.conf |grep -oP '(?<=nameserver\ ).*')
 alias proxy='export https_proxy="http://${hostip}:7890";export http_proxy="http://${hostip}:7890";export all_proxy="socks5://${hostip}:7890";export ALL_PROXY="socks5://${hostip}:7890";'
 alias unproxy='unset https_proxy; unset http_proxy; unset all_proxy; unset ALL_PROXY;'
 ```
+if you use `.wslconfig` with `experimental` you need change `hostip=127.0.0.1`
+```bash
+[wsl2]
+
+[experimental]
+networkingMode=mirrored
+```
 
 
 
