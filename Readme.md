@@ -1,6 +1,7 @@
 ## wsl2 use proxy,default port 7890
 need add to last with .bashrc or .zshrc
 ```bash
+# wsl2 proxy
 export hostip=$(cat /etc/resolv.conf |grep -oP '(?<=nameserver\ ).*')
 #export https_proxy="http://${hostip}:7890"
 #export http_proxy="http://${hostip}:7890"
