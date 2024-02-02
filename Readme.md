@@ -1,3 +1,59 @@
+## Ubuntu-22.04 LTS change source to bfsu
+```bash
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.bac
+sudo vim /etc/apt/source.list
+```
+
+```bash
+# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+deb https://mirrors4.bfsu.edu.cn/ubuntu/ jammy main restricted universe multiverse
+# deb-src https://mirrors4.bfsu.edu.cn/ubuntu/ jammy main restricted universe multiverse
+deb https://mirrors4.bfsu.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse
+# deb-src https://mirrors4.bfsu.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse
+deb https://mirrors4.bfsu.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse
+# deb-src https://mirrors4.bfsu.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse
+
+deb https://mirrors4.bfsu.edu.cn/ubuntu/ jammy-security main restricted universe multiverse
+# deb-src https://mirrors4.bfsu.edu.cn/ubuntu/ jammy-security main restricted universe multiverse
+
+# 预发布软件源，不建议启用
+# deb https://mirrors4.bfsu.edu.cn/ubuntu/ jammy-proposed main restricted universe multiverse
+# # deb-src https://mirrors4.bfsu.edu.cn/ubuntu/ jammy-proposed main restricted universe multiverse
+```
+
+### change conda source
+```bash
+cd ~
+vim .condarc
+```
+
+```bash
+channels:
+  - defaults
+show_channel_urls: true
+default_channels:
+  - https://mirrors.bfsu.edu.cn/anaconda/pkgs/main
+  - https://mirrors.bfsu.edu.cn/anaconda/pkgs/r
+  - https://mirrors.bfsu.edu.cn/anaconda/pkgs/msys2
+custom_channels:
+  conda-forge: https://mirrors.bfsu.edu.cn/anaconda/cloud
+  msys2: https://mirrors.bfsu.edu.cn/anaconda/cloud
+  bioconda: https://mirrors.bfsu.edu.cn/anaconda/cloud
+  menpo: https://mirrors.bfsu.edu.cn/anaconda/cloud
+  pytorch: https://mirrors.bfsu.edu.cn/anaconda/cloud
+  pytorch-lts: https://mirrors.bfsu.edu.cn/anaconda/cloud
+  simpleitk: https://mirrors.bfsu.edu.cn/anaconda/cloud
+  deepmodeling: https://mirrors.bfsu.edu.cn/anaconda/cloud/
+```
+### change pip source
+```bash
+pip config set global.index-url https://mirrors.bfsu.edu.cn/pypi/web/simple
+```
+
+### more
+`https://mirrors.bfsu.edu.cn/help`
+
+
 ## wsl2 use proxy,default port 7890
 need add to last with .bashrc or .zshrc
 ```bash
