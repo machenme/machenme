@@ -1,3 +1,8 @@
+## Microsoft Visual C++ 14.0 or greater is required. Get it with "Microsoft C++ Build Tools": https://visualstudio.mic rosoft.com/visual-cpp-build-tools/
+```bash
+.\vs_buildtools.exe --norestart --passive --downloadThenInstall --includeRecommended --add Microsoft.VisualStudio.Workload.NativeDesktop --add Microsoft.VisualStudio.Workload.VCTools --add Microsoft.VisualStudio.Workload.MSBuildTools
+```
+
 ## Ubuntu-22.04 LTS change source to bfsu
 ```bash
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.bac
