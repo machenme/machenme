@@ -4,7 +4,7 @@ from sklearn.preprocessing import MinMaxScaler
 # 归一化
 scaler = MinMaxScaler(feature_range=(0, 1))
 data_normalized = scaler.fit_transform(data)
-# 反归一化预测结果  6 是lookback
+# 反归一化预测结果  6 是X的特征维度
 prediction_copies_array = np.repeat(predicted.detach().cpu().numpy(), 6, axis=-1)
 
 predicted_cpu = predicted.detach().cpu().numpy()
