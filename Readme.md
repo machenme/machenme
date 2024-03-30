@@ -1,3 +1,27 @@
+## LSTM network 多X特征反归一化解决方法
+```py
+from sklearn.preprocessing import MinMaxScaler
+# 归一化
+scaler = MinMaxScaler(feature_range=(0, 1))
+data_normalized = scaler.fit_transform(data)
+# 反归一化预测结果  6 是lookback
+prediction_copies_array = np.repeat(predicted.detach().cpu().numpy(), 6, axis=-1)
+
+predicted_cpu = predicted.detach().cpu().numpy()
+predicted_np = scaler.inverse_transform(
+    np.reshape(prediction_copies_array, (len(predicted_cpu), 6))
+)[:, 0]
+
+y_test_copies_array = np.repeat(y_test_tensor.detach().cpu().numpy(), 6, axis=-1)
+
+y_test_cpu = y_test_tensor.detach().cpu().numpy()
+y_test_np = scaler.inverse_transform(
+    np.reshape(y_test_copies_array, (len(y_test_cpu), 6))
+)[:, 0]
+```
+
+
+
 ## Pytorch 2.x with cuda
 ```bash
 conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
