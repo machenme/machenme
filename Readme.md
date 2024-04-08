@@ -1,3 +1,10 @@
+## PLT显示中文和负号
+```py
+import matplotlib.pyplot as plt
+plt.rcParams["font.sans-serif"] = ["SimHei"]  # 用来正常显示中文标签
+plt.rcParams["axes.unicode_minus"] = False  # 用来正常显示负号
+```
+
 ## LSTM network 多X特征反归一化解决方法
 ```py
 from sklearn.preprocessing import MinMaxScaler
