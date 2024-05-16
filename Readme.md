@@ -1,3 +1,17 @@
+## Make powershell useful again（MPUA）
+```powershell
+function rmenv($envName) {
+    conda remove -n $envName --all -y
+    conda env list
+}
+
+function mkenv($envName,[string]$pythonVer = "3.11"){
+    conda create -n $envName python==$pythonVer -y
+    conda activate $envName
+}
+```
+
+
 ## PLT显示中文和负号
 ```py
 import matplotlib.pyplot as plt
