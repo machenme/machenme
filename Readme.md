@@ -7,7 +7,7 @@ function rmenv($envName) {
 }
 
 function mkenv($envName,[string]$pythonVer = "3.11"){
-    conda create -n $envName python==$pythonVer -y
+    conda create -n $envName python=$pythonVer -y
     conda activate $envName
 }
 ```
