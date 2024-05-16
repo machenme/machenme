@@ -1,4 +1,5 @@
 ## Make conda useful again（MCUA）
+`powershell` 输入`notepad $$profile`编辑
 ```powershell
 function rmenv($envName) {
     conda remove -n $envName --all -y
