@@ -1,4 +1,4 @@
-## Make powershell useful again（MPUA）
+## Make conda useful again（MCUA）
 ```powershell
 function rmenv($envName) {
     conda remove -n $envName --all -y
