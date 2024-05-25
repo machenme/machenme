@@ -20,7 +20,7 @@ rmenv() {
     # 列出所有 Conda 环境
     conda env list
 }
-
+```
 # 定义 mkenv 函数，用于创建新的 Conda 环境
 mkenv() {
     # 使用 conda create 命令创建新的环境，并指定 Python 版本
@@ -32,7 +32,7 @@ mkenv() {
     conda activate "$envName"
 }
 ```
-```
+
 
 
 ## PLT显示中文和负号
