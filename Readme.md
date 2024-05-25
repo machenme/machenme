@@ -10,6 +10,7 @@ function mkenv($envName,[string]$pythonVer = "3.11"){
     conda create -n $envName python=$pythonVer -y
     conda activate $envName
 }
+```
 `bash`版本
 ```bash
 # 定义 rmenv 函数，用于移除 Conda 环境
