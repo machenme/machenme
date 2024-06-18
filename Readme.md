@@ -157,18 +157,12 @@ channels:
   - defaults
 show_channel_urls: true
 default_channels:
-  - https://mirrors.bfsu.edu.cn/anaconda/pkgs/main
-  - https://mirrors.bfsu.edu.cn/anaconda/pkgs/r
-  - https://mirrors.bfsu.edu.cn/anaconda/pkgs/msys2
+  - https://mirror.bjtu.edu.cn/anaconda/pkgs/main
+  - https://mirror.bjtu.edu.cn/anaconda/pkgs/r
+  - https://mirror.bjtu.edu.cn/anaconda/pkgs/msys2
 custom_channels:
-  conda-forge: https://mirrors.bfsu.edu.cn/anaconda/cloud
-  msys2: https://mirrors.bfsu.edu.cn/anaconda/cloud
-  bioconda: https://mirrors.bfsu.edu.cn/anaconda/cloud
-  menpo: https://mirrors.bfsu.edu.cn/anaconda/cloud
-  pytorch: https://mirrors.bfsu.edu.cn/anaconda/cloud
-  pytorch-lts: https://mirrors.bfsu.edu.cn/anaconda/cloud
-  simpleitk: https://mirrors.bfsu.edu.cn/anaconda/cloud
-  deepmodeling: https://mirrors.bfsu.edu.cn/anaconda/cloud/
+  conda-forge: https://mirror.bjtu.edu.cn/anaconda/cloud
+  pytorch: https://mirror.bjtu.edu.cn/anaconda/cloud
 ```
 ### change pip source
 ```bash
@@ -184,6 +178,7 @@ need add to last with .bashrc or .zshrc
 ```bash
 # wsl2 proxy
 export hostip=$(cat /etc/resolv.conf |grep -oP '(?<=nameserver\ ).*')
+# export hostip=127.0.0.1
 #export https_proxy="http://${hostip}:7890"
 #export http_proxy="http://${hostip}:7890"
 #export all_proxy="socks5://${hostip}:7890"
@@ -259,39 +254,6 @@ sudo dpkg -i mysql-apt-config_0.8.25-1_all.deb
 sudo apt update
 sudo apt install mysql-server
 ```
-
-
-
-
-## Python for windows([mamba](https://mamba.readthedocs.io/en/latest/installation.html)/[conda](https://docs.conda.io/en/latest/miniconda.html))  
-### change conda sources
-- open mamba/conda then type `conda config --set show_channel_urls yes`(the application you open is named like xxx Prompt)
-- open `%HOMEPATH%\.condarc` with editor whatever you like
-- replace below code into .condarc file
-  ```powershell
-  channels:
-  - defaults
-  show_channel_urls: true
-  default_channels:
-    - https://mirrors.bfsu.edu.cn/anaconda/pkgs/main
-    - https://mirrors.bfsu.edu.cn/anaconda/pkgs/r
-    - https://mirrors.bfsu.edu.cn/anaconda/pkgs/msys2
-  custom_channels:
-    conda-forge: https://mirrors.bfsu.edu.cn/anaconda/cloud
-    msys2: https://mirrors.bfsu.edu.cn/anaconda/cloud
-    bioconda: https://mirrors.bfsu.edu.cn/anaconda/cloud
-    menpo: https://mirrors.bfsu.edu.cn/anaconda/cloud
-    pytorch: https://mirrors.bfsu.edu.cn/anaconda/cloud
-    pytorch-lts: https://mirrors.bfsu.edu.cn/anaconda/cloud
-    simpleitk: https://mirrors.bfsu.edu.cn/anaconda/cloud
-  ```
-- clean conda cache with `conda clean -i`
-- create py ervironment with `mamba create -n py311 python==3.11`(py311 is your environment name, I like use python version)
-- activate your python env with `conda/mamba activate py311)
-- change your pip sources with `pip config set global.index-url https://mirrors.bfsu.edu.cn/pypi/web/simple`
-
-
-
 
 
 
