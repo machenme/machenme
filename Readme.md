@@ -1,3 +1,35 @@
+## 移动Public\Desktop 所有文件到当前bat目录
+```bat
+@echo off
+setlocal
+:: get current bat path
+set currentDir=%~dp0
+set publicDesktop=%PUBLIC%\Desktop
+set movedFiles=0
+if exist "%publicDesktop%" (
+    echo Public Desktop found.
+    for %%f in ("%publicDesktop%\*") do (
+        echo Moving %%f
+        move "%%f" "%currentDir%"
+        if not errorlevel 1 (
+            set /a movedFiles+=1
+            echo Moved: %%f
+        )
+    )
+    if %movedFiles% equ 0 (
+        echo no file
+    )
+) else (
+    echo Public Desktop not found.
+)
+pause
+endlocal
+```
+
+
+
+
+
 ## 解决图标快捷方式变白的问题
 另存为bat格式运行即可
 ```bat
