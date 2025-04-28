@@ -5,6 +5,13 @@
 url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
 default = true
 ```
+### 复现uv项目，确保项目根目录有`uv.lock`,`pyproject.toml`
+```bash
+git clone <your-repo-url>
+pip install uv
+uv sync
+```
+
 
 ## 移动Public\Desktop 所有文件到当前bat目录
 ```bat
