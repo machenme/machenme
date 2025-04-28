@@ -1,3 +1,11 @@
+## uv添加国内源
+```bash
+# pyproject.toml
+[[tool.uv.index]]
+url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
+default = true
+```
+
 ## 移动Public\Desktop 所有文件到当前bat目录
 ```bat
 @echo off
