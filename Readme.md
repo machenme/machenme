@@ -2,10 +2,10 @@
 ```powershell
 New-Item -ItemType Directory -Path "$env:APPDATA\uv" -Force
 @"
+python-install-mirror = "https://registry.npmmirror.com/-/binary/python-build-standalone"
 [[index]]
 url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
 default = true
-python-install-mirror = "https://registry.npmmirror.com/-/binary/python-build-standalone"
 "@ | Out-File -FilePath "$env:APPDATA\uv\uv.toml" -Encoding utf8
 ```
 
