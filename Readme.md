@@ -5,6 +5,12 @@
 url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
 default = true
 ```
+
+### 安装UV
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
 ### 复现uv项目，确保项目根目录有`uv.lock`,`pyproject.toml`
 ```bash
 git clone <your-repo-url>
