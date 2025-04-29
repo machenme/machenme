@@ -1,9 +1,8 @@
 ## uv添加国内源
-```bash
-# pyproject.toml
-[[tool.uv.index]]
-url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
-default = true
+```powershell
+$dir = Join-Path $env:APPDATA "uv"
+New-Item -Path $dir -ItemType Directory -Force
+Set-Content -Path (Join-Path $dir "uv.toml") -Value "[[index]]`nurl = `"`https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple`"`ndefault = true" -Encoding UTF8
 ```
 
 ### 安装UV
