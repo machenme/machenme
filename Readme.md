@@ -1,8 +1,12 @@
 ## uv添加国内源
 ```powershell
-$dir = Join-Path $env:APPDATA "uv"
-New-Item -Path $dir -ItemType Directory -Force
-Set-Content -Path (Join-Path $dir "uv.toml") -Value "[[index]]`nurl = `"`https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple`"`ndefault = true" -Encoding UTF8
+New-Item -ItemType Directory -Path "$env:APPDATA\uv" -Force
+@"
+[[index]]
+url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
+default = true
+python-install-mirror = "https://registry.npmmirror.com/-/binary/python-build-standalone"
+"@ | Out-File -FilePath "$env:APPDATA\uv\uv.toml" -Encoding utf8
 ```
 
 ### 安装UV
