@@ -1,3 +1,39 @@
+## EDGE修改用户数据路径到脚本位置.bat
+```bat
+chcp 65001
+@echo off
+setlocal enabledelayedexpansion
+:: 获取批处理文件所在目录（带引号处理）
+set "scriptDir=%~dp0"
+set "edgeDir=%scriptDir%EdgeData"
+set "regPath=HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge"
+
+:: 创建目标目录结构
+if not exist "%edgeDir%" (
+    mkdir "%edgeDir%\User Data"
+    mkdir "%edgeDir%\Cache"
+    echo 已创建目录结构：%edgeDir%
+)
+
+:: 关闭所有Edge进程
+taskkill /f /im msedge.exe >nul 2>&1
+echo 已终止所有Edge进程...
+timeout /t 2 >nul
+
+:: 迁移现有用户数据（首次运行有效）
+if exist "%LocalAppData%\Microsoft\Edge\User Data" (
+    robocopy "%LocalAppData%\Microsoft\Edge\User Data" "%edgeDir%\User Data" /MIR /R:3 /W:5
+    echo 已迁移历史数据...
+)
+
+:: 写入注册表配置
+reg add "%regPath%" /v "UserDataDir" /d "%scriptDir%profile" /f >nul
+reg add "%regPath%" /v "DiskCacheDir" /d "%edgeDir%\Cache" /f >nul
+echo 已更新注册表配置...
+
+pause
+```
+
 ## uv添加国内源
 ```powershell
 New-Item -ItemType Directory -Path "$env:APPDATA\uv" -Force
