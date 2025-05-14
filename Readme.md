@@ -181,18 +181,18 @@ pip config set global.index-url https://mirrors.bfsu.edu.cn/pypi/web/simple
 `https://mirrors.bfsu.edu.cn/help`
 
 
-## wsl2 use proxy,default port 7890
+## wsl2 use proxy,default port 7897
 need add to last with .bashrc or .zshrc
 ```bash
 # wsl2 proxy
-export hostip=$(cat /etc/resolv.conf |grep -oP '(?<=nameserver\ ).*')
-# export hostip=127.0.0.1
-#export https_proxy="http://${hostip}:7890"
-#export http_proxy="http://${hostip}:7890"
-#export all_proxy="socks5://${hostip}:7890"
-#export ALL_PROXY="socks5://${hostip}:7890"
+# export hostip=$(cat /etc/resolv.conf |grep -oP '(?<=nameserver\ ).*')
+export hostip=127.0.0.1
+#export https_proxy="http://${hostip}:7897"
+#export http_proxy="http://${hostip}:7897"
+#export all_proxy="socks5://${hostip}:7897"
+#export ALL_PROXY="socks5://${hostip}:7897"
 # 默认不开启代理，可通过unproxy 和proxy 别名命令 关闭或开启代理
-alias proxy='export https_proxy="http://${hostip}:7890";export http_proxy="http://${hostip}:7890";export all_proxy="socks5://${hostip}:7890";export ALL_PROXY="socks5://${hostip}:7890";'
+alias proxy='export https_proxy="http://${hostip}:7897";export http_proxy="http://${hostip}:7897";export all_proxy="socks5://${hostip}:7897";export ALL_PROXY="socks5://${hostip}:7897";'
 alias unproxy='unset https_proxy; unset http_proxy; unset all_proxy; unset ALL_PROXY;'
 ```
 if you use `.wslconfig` with `experimental` you need change `hostip=127.0.0.1`
