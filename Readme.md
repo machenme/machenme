@@ -49,6 +49,10 @@ default = true
 ```powershell
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
+```bash
+# On macOS and Linux.
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
 
 ### 复现uv项目，确保项目根目录有`uv.lock`,`pyproject.toml`
 ```bash
