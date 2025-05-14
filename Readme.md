@@ -39,7 +39,9 @@ pause
 ```bash
 python-install-mirror = "https://registry.npmmirror.com/-/binary/python-build-standalone"
 [[index]]
-url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
+url = "https://mirrors.bfsu.edu.cn/pypi/web/simple"
+# url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
+# url = "https://mirrors.cernet.edu.cn/pypi/web/simple"
 default = true
 ```
 
