@@ -1,3 +1,23 @@
+## python 连接sqlServer
+- 下载`OOBC`驱动 [https://learn.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver16](https://learn.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver16)
+- Sql Server 配置管理器-SQL SERVER 网络配置-SQLEXPRESS的协议-TCP/IP属性-IP地址-IPALL-TCP动态端口留空 TCP端口对应下面的1433-重启sql服务
+```python
+import pyodbc
+import pandas as pd
+
+# 数据库连接配置
+conn_str = (
+    "DRIVER={ODBC Driver 18 for SQL Server};"
+    "SERVER=localhost\\SQLEXPRESS,1433;"
+    "DATABASE=BlockchainPolicyDB;"
+    "Trusted_Connection=yes;"
+    "TrustServerCertificate=yes;"
+)
+conn = pyodbc.connect(conn_str)
+cursor = conn.cursor()
+```
+
+
 ## EDGE修改用户数据路径到脚本位置.bat
 ```bat
 chcp 65001
