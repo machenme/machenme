@@ -1,3 +1,36 @@
+## uv添加国内源 
+windows
+```powershell
+$filePath = Join-Path $env:APPDATA 'uv\uv.toml'
+$dir = Split-Path $filePath -Parent
+New-Item -Path $dir -ItemType Directory -Force | Out-Null
+@"
+python-install-mirror = "https://registry.npmmirror.com/-/binary/python-build-standalone"
+[[index]]
+url = "https://mirrors.bfsu.edu.cn/pypi/web/simple"
+# url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
+# url = "https://mirrors.cernet.edu.cn/pypi/web/simple"
+default = true
+"@ | Set-Content -Path $filePath
+```
+
+
+### 安装UV
+网络不佳可以windows直接下载uv0.76.exe [蓝奏云](https://mc29.lanzoub.com/iRfdm2wsjpjg) 或者 [123盘](https://www.123684.com/s/PiZeVv-4OXVh)
+[uv官网](https://github.com/astral-sh/uv)
+
+### 复现uv项目，确保项目根目录有`uv.lock`,`pyproject.toml`
+
+把上面下载的uv.exe放项目根目录，然后运行`uv sync`
+
+
+---
+
+
+
+
+
+
 ## python 连接sqlServer
 - 下载`OOBC`驱动 [https://learn.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver16](https://learn.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver16)
 - Sql Server 配置管理器-SQL SERVER 网络配置-SQLEXPRESS的协议-TCP/IP属性-IP地址-IPALL-TCP动态端口留空 TCP端口对应下面的1433-重启sql服务
@@ -53,33 +86,6 @@ echo 已更新注册表配置...
 
 pause
 ```
-
-## uv添加国内源
-`~/.config/uv/uv.toml` or `APPDATA\uv\uv.toml`
-```bash
-python-install-mirror = "https://registry.npmmirror.com/-/binary/python-build-standalone"
-[[index]]
-url = "https://mirrors.bfsu.edu.cn/pypi/web/simple"
-# url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
-# url = "https://mirrors.cernet.edu.cn/pypi/web/simple"
-default = true
-```
-
-
-### 安装UV
-```powershell
-powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-```
-```bash
-# On macOS and Linux.
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
-
-### 复现uv项目，确保项目根目录有`uv.lock`,`pyproject.toml`
-```bash
-git clone <your-repo-url>
-pip install uv
-uv sync
 ```
 
 
