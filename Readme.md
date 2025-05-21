@@ -13,7 +13,18 @@ url = "https://mirrors.bfsu.edu.cn/pypi/web/simple"
 default = true
 "@ | Set-Content -Path $filePath
 ```
-
+bash
+```bash
+mkdir -p ~/.config/uv && \
+cat << EOF >> ~/.config/uv/uv.toml
+python-install-mirror = "https://registry.npmmirror.com/-/binary/python-build-standalone"
+[[index]]
+url = "https://mirrors.bfsu.edu.cn/pypi/web/simple"
+# url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
+# url = "https://mirrors.cernet.edu.cn/pypi/web/simple"
+default = true
+EOF
+```
 
 ### 安装UV
 网络不佳可以windows直接下载uv0.76.exe [蓝奏云](https://mc29.lanzoub.com/iRfdm2wsjpjg) 或者 [123盘](https://www.123684.com/s/PiZeVv-4OXVh)
